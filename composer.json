@@ -2,6 +2,12 @@
     "name": "aeliot/doctrine-encrypted-query",
     "type": "library",
     "description": "Implementation of cryptographic SQL functions processing for ORM Query of Doctrine",
+    "keywords": [
+        "doctrine",
+        "database",
+        "ORM Query",
+        "encryption"
+    ],
     "license": "MIT",
     "autoload": {
         "psr-4": {
@@ -61,6 +67,5 @@
         "require-check": "tools/composer-require-checker check --config-file=scripts/composer-require-checker/config.json composer.json --output=text",
         "test-unit": "vendor/bin/phpunit -c scripts/phpunit/config.xml --testsuite unit -v",
         "unused": "XDEBUG_MODE=off tools/composer-unused.phar unused -c ./scripts/composer-unused/config.php"
-    },
-    "keywords": ["doctrine", "database", "encryption", "symfony"]
+    }
 }
