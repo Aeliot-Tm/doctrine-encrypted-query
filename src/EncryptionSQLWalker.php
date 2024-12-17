@@ -14,7 +14,7 @@ declare(strict_types=1);
 namespace Aeliot\DoctrineEncrypted\Query;
 
 use Aeliot\DoctrineEncrypted\Contracts\CryptographicSQLFunctionWrapper;
-use Aeliot\DoctrineEncrypted\Query\Enum\FieldTypeEnum;
+use Aeliot\DoctrineEncrypted\Types\Enum\TypeEnum;
 use Doctrine\ORM\Mapping\ClassMetadata;
 use Doctrine\ORM\Query\AST\ArithmeticExpression;
 use Doctrine\ORM\Query\AST\ComparisonExpression;
@@ -111,7 +111,7 @@ class EncryptionSQLWalker extends SqlWalker
 
             if (
                 ($fieldMapping = $this->getFieldMapping($metadata, $fieldName))
-                && \in_array($fieldMapping['type'], FieldTypeEnum::all(), true)
+                && \in_array($fieldMapping['type'], TypeEnum::all(), true)
             ) {
                 $sql = CryptographicSQLFunctionWrapper::getDecryptSQLExpression($sql);
             }
@@ -166,7 +166,7 @@ class EncryptionSQLWalker extends SqlWalker
             return false;
         }
 
-        return \in_array($this->getExpressionFieldType($expression), FieldTypeEnum::all(), true);
+        return \in_array($this->getExpressionFieldType($expression), TypeEnum::all(), true);
     }
 
     /**
