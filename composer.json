@@ -28,8 +28,20 @@
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "git@github.com:Aeliot-Tm/doctrine-encrypted-contracts.git"
+        },
+        {
+            "type": "vcs",
+            "url": "git@github.com:Aeliot-Tm/doctrine-encrypted-types.git"
+        }
+    ],
     "require": {
         "php": "^8.2",
+        "aeliot/doctrine-encrypted-contracts": "dev-main",
+        "aeliot/doctrine-encrypted-types": "dev-main",
         "doctrine/orm": "^2.15"
     },
     "require-dev": {
