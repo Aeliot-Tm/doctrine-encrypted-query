@@ -3,15 +3,11 @@ ARG DEBIAN_RELEASE=bullseye
 
 FROM php:${PHP_VERSION}-cli-${DEBIAN_RELEASE}
 
-ENV COMPOSER_ALLOW_SUPERUSER 1
-ENV COMPOSER_NO_INTERACTION 1
-ENV COMPOSER_VERSION 2.7.6
-ENV DEBIAN_FRONTEND noninteractive
-ENV DOCKER_PHP_DEPS \
-    gnupg \
-    libxml2-dev \
-    libzip-dev \
-    unzip
+ARG COMPOSER_ALLOW_SUPERUSER=1
+ARG COMPOSER_NO_INTERACTION=1
+ARG COMPOSER_VERSION=2.7.6
+ARG DEBIAN_FRONTEND=noninteractive
+ARG DOCKER_PHP_DEPS='gnupg libxml2-dev libzip-dev unzip'
 
 RUN set -xe; \
     apt-get --allow-releaseinfo-change update && \
@@ -39,7 +35,9 @@ WORKDIR /app
 
 COPY composer.* ./
 
+ARG COMPOSER_GITHUB_TOKEN=""
 RUN set -xe; \
+    composer config --global github-oauth.github.com $COMPOSER_GITHUB_TOKEN && \
     composer install --no-autoloader --no-dev --no-interaction --no-progress --no-scripts --prefer-dist && \
     composer clear-cache && \
     rm -rf ./vendor/*/*/tests

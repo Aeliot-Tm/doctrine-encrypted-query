@@ -3,5 +3,7 @@ services:
         build:
             context: ./
             dockerfile: .docker/php/Dockerfile
+            args:
+                COMPOSER_GITHUB_TOKEN: ${COMPOSER_GITHUB_TOKEN:-''}
         volumes:
             - .:/app
