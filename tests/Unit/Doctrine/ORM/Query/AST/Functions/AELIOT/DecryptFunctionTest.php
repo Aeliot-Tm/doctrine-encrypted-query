@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace Aeliot\DoctrineEncrypted\Query\Tests\Unit\Doctrine\ORM\Query\AST\Functions\AELIOT;
 
-use Aeliot\DoctrineEncrypted\Query\Doctrine\ORM\Query\AST\Functions\AELIOT\DecryptFunction;
+use Aeliot\DoctrineEncrypted\Query\AST\Functions\DecryptFunction;
 use Aeliot\DoctrineEncrypted\Query\Enum\FunctionEnum;
 use Doctrine\ORM\Query\AST\SimpleArithmeticExpression;
 use Doctrine\ORM\Query\Lexer;

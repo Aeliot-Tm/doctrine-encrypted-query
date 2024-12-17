@@ -11,7 +11,7 @@ declare(strict_types=1);
  * with this source code in the file LICENSE.
  */
 
-namespace Aeliot\DoctrineEncrypted\Query\Doctrine\ORM\Query\AST\Functions\AELIOT;
+namespace Aeliot\DoctrineEncrypted\Query\AST\Functions;
 
 use Aeliot\DoctrineEncrypted\Query\Exception\ConfigurationException;
 use Doctrine\ORM\Query\AST\Functions\FunctionNode;
