@@ -3,13 +3,6 @@
     "type": "library",
     "description": "Implementation of cryptographic SQL functions processing for ORM Query of Doctrine",
     "license": "MIT",
-    "config": {
-        "allow-plugins": {
-            "composer/*": true,
-            "phpstan/extension-installer": true
-        },
-        "sort-packages": true
-    },
     "autoload": {
         "psr-4": {
             "Aeliot\\DoctrineEncryptedQuery\\": "src/"
@@ -19,6 +12,13 @@
         "psr-4": {
             "Aeliot\\DoctrineEncryptedQuery\\Tests\\": "tests/"
         }
+    },
+    "config": {
+        "allow-plugins": {
+            "composer/*": true,
+            "phpstan/extension-installer": true
+        },
+        "sort-packages": true
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
