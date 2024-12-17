@@ -11,7 +11,7 @@ declare(strict_types=1);
  * with this source code in the file LICENSE.
  */
 
-namespace Aeliot\DoctrineEncrypted\Query\Doctrine\ORM\Query;
+namespace Aeliot\DoctrineEncrypted\Query;
 
 use Aeliot\DoctrineEncrypted\Query\Doctrine\EncryptionExpressionTrait;
 use Aeliot\DoctrineEncrypted\Query\Enum\FieldTypeEnum;
