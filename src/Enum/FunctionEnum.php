@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /*
- * This file is part of the Doctrine Encrypted Field Bundle.
+ * This file is part of the Doctrine Encrypted Query.
  *
  * (c) Anatoliy Melnikov <5785276@gmail.com>
  *
