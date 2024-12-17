@@ -11,21 +11,19 @@ declare(strict_types=1);
  * with this source code in the file LICENSE.
  */
 
-namespace Aeliot\DoctrineEncrypted\Query\Tests\Unit\Doctrine\ORM\Query\AST\Functions\AELIOT;
+namespace Aeliot\DoctrineEncrypted\Query\Tests\Unit\AST\Functions;
 
 use Aeliot\DoctrineEncrypted\Query\AST\Functions\EncryptFunction;
-use Aeliot\DoctrineEncrypted\Query\Enum\FunctionEnum;
 use Doctrine\ORM\Query\AST\SimpleArithmeticExpression;
 use Doctrine\ORM\Query\Lexer;
 use Doctrine\ORM\Query\Parser;
 use Doctrine\ORM\Query\SqlWalker;
-use PHPUnit\Framework\TestCase;
 
-final class EncryptFunctionTest extends TestCase
+final class EncryptFunctionTest extends AbstractCryptographicFunctionTestCase
 {
     public function testParse(): void
     {
-        $function = new EncryptFunction(FunctionEnum::ENCRYPT);
+        $function = new EncryptFunction(self::FUNC_ENCRYPT);
 
         $simpleArithmeticExpression = $this->createMock(SimpleArithmeticExpression::class);
 
@@ -50,9 +48,9 @@ final class EncryptFunctionTest extends TestCase
         $sqlWalker = $this->createMock(SqlWalker::class);
         $sqlWalker->method('walkSimpleArithmeticExpression')->willReturn('expression');
 
-        $function = new EncryptFunction(FunctionEnum::ENCRYPT);
+        $function = new EncryptFunction(self::FUNC_ENCRYPT);
         self::assertEquals(
-            sprintf('%s(%s)', FunctionEnum::ENCRYPT, 'expression'),
+            sprintf('%s(%s)', self::FUNC_ENCRYPT, 'expression'),
             $function->getSql($sqlWalker)
         );
     }

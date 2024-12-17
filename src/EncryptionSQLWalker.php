@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace Aeliot\DoctrineEncrypted\Query;
 
-use Aeliot\DoctrineEncrypted\Query\Doctrine\EncryptionExpressionTrait;
+use Aeliot\DoctrineEncrypted\Contracts\CryptographicSQLFunctionWrapper;
 use Aeliot\DoctrineEncrypted\Query\Enum\FieldTypeEnum;
 use Doctrine\ORM\Mapping\ClassMetadata;
 use Doctrine\ORM\Query\AST\ArithmeticExpression;
@@ -26,10 +26,8 @@ use Doctrine\ORM\Query\AST\PathExpression;
 use Doctrine\ORM\Query\Expr\Comparison;
 use Doctrine\ORM\Query\SqlWalker;
 
-final class EncryptionSQLWalker extends SqlWalker
+class EncryptionSQLWalker extends SqlWalker
 {
-    use EncryptionExpressionTrait;
-
     /**
      * @var array<string,string>
      */
@@ -63,7 +61,7 @@ final class EncryptionSQLWalker extends SqlWalker
             $inputParam->isNamed
             && \in_array($inputParam->name, $this->parametersWithAdditionalEncryption, true)
         ) {
-            $inputParameter = $this->getEncryptSQLExpression($inputParameter);
+            $inputParameter = CryptographicSQLFunctionWrapper::getEncryptSQLExpression($inputParameter);
         }
 
         return $inputParameter;
@@ -115,7 +113,7 @@ final class EncryptionSQLWalker extends SqlWalker
                 ($fieldMapping = $this->getFieldMapping($metadata, $fieldName))
                 && \in_array($fieldMapping['type'], FieldTypeEnum::all(), true)
             ) {
-                $sql = $this->getDecryptSQLExpression($sql);
+                $sql = CryptographicSQLFunctionWrapper::getDecryptSQLExpression($sql);
             }
         }
 
