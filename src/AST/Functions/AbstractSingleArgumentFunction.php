@@ -13,6 +13,8 @@ declare(strict_types=1);
 
 namespace Aeliot\DoctrineEncrypted\Query\AST\Functions;
 
+use Aeliot\DoctrineEncrypted\Contracts\CryptographicSQLFunctionNameProviderInterface;
+use Aeliot\DoctrineEncrypted\Contracts\CryptographicSQLFunctionNameProviderNotConfiguredException;
 use Aeliot\DoctrineEncrypted\Query\Exception\ConfigurationException;
 use Doctrine\ORM\Query\AST\Functions\FunctionNode;
 use Doctrine\ORM\Query\AST\SimpleArithmeticExpression;
@@ -20,16 +22,33 @@ use Doctrine\ORM\Query\Lexer;
 use Doctrine\ORM\Query\Parser;
 use Doctrine\ORM\Query\SqlWalker;
 
+/**
+ * Representation of cryptographic SQL function AST.
+ *
+ * It supports structure:
+ * - CryptographicSQLFunctionName
+ * - symbol "("
+ * - SimpleArithmeticExpression
+ * - symbol ")"
+ */
 abstract class AbstractSingleArgumentFunction extends FunctionNode
 {
-    protected const FUNCTION_NAME = '';
+    private static ?CryptographicSQLFunctionNameProviderInterface $functionNameProvider = null;
 
     public ?SimpleArithmeticExpression $simpleArithmeticExpression = null;
 
+    public static function setFunctionNameProvider(
+        CryptographicSQLFunctionNameProviderInterface $functionNameProvider
+    ): void {
+        self::$functionNameProvider = $functionNameProvider;
+    }
+
+    abstract public static function getSupportedFunctionName(): string;
+
     public function __construct(string $name)
     {
-        if (!static::FUNCTION_NAME) {
-            throw new ConfigurationException(sprintf('"%s::FUNCTION_NAME" constant was not defined.', static::class));
+        if (static::getSupportedFunctionName() !== $name) {
+            throw new ConfigurationException(sprintf('Invalid function configuration "%s"', $name));
         }
 
         parent::__construct($name);
@@ -39,7 +58,7 @@ abstract class AbstractSingleArgumentFunction extends FunctionNode
     {
         return sprintf(
             '%s(%s)',
-            static::FUNCTION_NAME,
+            static::getSupportedFunctionName(),
             $sqlWalker->walkSimpleArithmeticExpression($this->simpleArithmeticExpression)
         );
     }
@@ -52,5 +71,14 @@ abstract class AbstractSingleArgumentFunction extends FunctionNode
         $this->simpleArithmeticExpression = $parser->SimpleArithmeticExpression();
 
         $parser->match(Lexer::T_CLOSE_PARENTHESIS);
+    }
+
+    protected static function getFunctionNameProvider(): CryptographicSQLFunctionNameProviderInterface
+    {
+        if (!self::$functionNameProvider instanceof CryptographicSQLFunctionNameProviderInterface) {
+            throw new CryptographicSQLFunctionNameProviderNotConfiguredException();
+        }
+
+        return self::$functionNameProvider;
     }
 }

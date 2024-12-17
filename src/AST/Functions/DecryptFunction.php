@@ -13,12 +13,10 @@ declare(strict_types=1);
 
 namespace Aeliot\DoctrineEncrypted\Query\AST\Functions;
 
-use Aeliot\DoctrineEncrypted\Query\Enum\FunctionEnum;
-
-/**
- * "APP_DECRYPT" "(" SimpleArithmeticExpression ")".
- */
 final class DecryptFunction extends AbstractSingleArgumentFunction
 {
-    protected const FUNCTION_NAME = FunctionEnum::DECRYPT;
+    public static function getSupportedFunctionName(): string
+    {
+        return self::getFunctionNameProvider()->getDecryptFunctionName();
+    }
 }
