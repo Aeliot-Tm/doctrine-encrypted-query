@@ -11,10 +11,10 @@ declare(strict_types=1);
  * with this source code in the file LICENSE.
  */
 
-namespace Aeliot\Bundle\DoctrineEncryptedField\Doctrine\ORM\Query;
+namespace Aeliot\DoctrineEncryptedQuery\Doctrine\ORM\Query;
 
-use Aeliot\Bundle\DoctrineEncryptedField\Doctrine\EncryptionExpressionTrait;
-use Aeliot\Bundle\DoctrineEncryptedField\Enum\FieldTypeEnum;
+use Aeliot\DoctrineEncryptedQuery\Doctrine\EncryptionExpressionTrait;
+use Aeliot\DoctrineEncryptedQuery\Enum\FieldTypeEnum;
 use Doctrine\ORM\Mapping\ClassMetadata;
 use Doctrine\ORM\Query\AST\ArithmeticExpression;
 use Doctrine\ORM\Query\AST\ComparisonExpression;

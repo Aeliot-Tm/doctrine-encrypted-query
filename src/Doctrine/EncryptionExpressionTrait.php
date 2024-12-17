@@ -11,9 +11,9 @@ declare(strict_types=1);
  * with this source code in the file LICENSE.
  */
 
-namespace Aeliot\Bundle\DoctrineEncryptedField\Doctrine;
+namespace Aeliot\DoctrineEncryptedQuery\Doctrine;
 
-use Aeliot\Bundle\DoctrineEncryptedField\Enum\FunctionEnum;
+use Aeliot\DoctrineEncryptedQuery\Enum\FunctionEnum;
 
 trait EncryptionExpressionTrait
 {

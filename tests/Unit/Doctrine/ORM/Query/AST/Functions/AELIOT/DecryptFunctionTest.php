@@ -11,10 +11,10 @@ declare(strict_types=1);
  * with this source code in the file LICENSE.
  */
 
-namespace Aeliot\Bundle\DoctrineEncryptedField\Tests\Unit\Doctrine\ORM\Query\AST\Functions\AELIOT;
+namespace Aeliot\DoctrineEncryptedQuery\Tests\Unit\Doctrine\ORM\Query\AST\Functions\AELIOT;
 
-use Aeliot\Bundle\DoctrineEncryptedField\Doctrine\ORM\Query\AST\Functions\AELIOT\DecryptFunction;
-use Aeliot\Bundle\DoctrineEncryptedField\Enum\FunctionEnum;
+use Aeliot\DoctrineEncryptedQuery\Doctrine\ORM\Query\AST\Functions\AELIOT\DecryptFunction;
+use Aeliot\DoctrineEncryptedQuery\Enum\FunctionEnum;
 use Doctrine\ORM\Query\AST\SimpleArithmeticExpression;
 use Doctrine\ORM\Query\Lexer;
 use Doctrine\ORM\Query\Parser;

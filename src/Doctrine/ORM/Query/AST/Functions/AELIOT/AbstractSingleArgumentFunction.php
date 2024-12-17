@@ -11,9 +11,9 @@ declare(strict_types=1);
  * with this source code in the file LICENSE.
  */
 
-namespace Aeliot\Bundle\DoctrineEncryptedField\Doctrine\ORM\Query\AST\Functions\AELIOT;
+namespace Aeliot\DoctrineEncryptedQuery\Doctrine\ORM\Query\AST\Functions\AELIOT;
 
-use Aeliot\Bundle\DoctrineEncryptedField\Exception\ConfigurationException;
+use Aeliot\DoctrineEncryptedQuery\Exception\ConfigurationException;
 use Doctrine\ORM\Query\AST\Functions\FunctionNode;
 use Doctrine\ORM\Query\AST\SimpleArithmeticExpression;
 use Doctrine\ORM\Query\Lexer;
