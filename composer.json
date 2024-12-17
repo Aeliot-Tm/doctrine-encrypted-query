@@ -11,12 +11,12 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Aeliot\\DoctrineEncryptedQuery\\": "src/"
+            "Aeliot\\DoctrineEncrypted\\Query\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Aeliot\\DoctrineEncryptedQuery\\Tests\\": "tests/"
+            "Aeliot\\DoctrineEncrypted\\Query\\Tests\\": "tests/"
         }
     },
     "config": {

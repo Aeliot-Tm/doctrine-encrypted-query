@@ -11,9 +11,9 @@ declare(strict_types=1);
  * with this source code in the file LICENSE.
  */
 
-namespace Aeliot\DoctrineEncryptedQuery\Doctrine\ORM\Query\AST\Functions\AELIOT;
+namespace Aeliot\DoctrineEncrypted\Query\Doctrine\ORM\Query\AST\Functions\AELIOT;
 
-use Aeliot\DoctrineEncryptedQuery\Enum\FunctionEnum;
+use Aeliot\DoctrineEncrypted\Query\Enum\FunctionEnum;
 
 /**
  * "APP_DECRYPT" "(" SimpleArithmeticExpression ")".

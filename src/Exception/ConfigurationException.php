@@ -11,7 +11,7 @@ declare(strict_types=1);
  * with this source code in the file LICENSE.
  */
 
-namespace Aeliot\DoctrineEncryptedQuery\Exception;
+namespace Aeliot\DoctrineEncrypted\Query\Exception;
 
 final class ConfigurationException extends \DomainException
 {

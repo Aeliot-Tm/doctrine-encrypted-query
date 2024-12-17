@@ -11,7 +11,7 @@ declare(strict_types=1);
  * with this source code in the file LICENSE.
  */
 
-namespace Aeliot\DoctrineEncryptedQuery\Enum;
+namespace Aeliot\DoctrineEncrypted\Query\Enum;
 
 final class FieldTypeEnum
 {
