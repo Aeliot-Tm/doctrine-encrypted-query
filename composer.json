@@ -3,10 +3,11 @@
     "type": "library",
     "description": "Implementation of cryptographic SQL functions processing for ORM Query of Doctrine",
     "keywords": [
-        "doctrine",
+        "cryptographic",
+        "encryption",
         "database",
-        "ORM Query",
-        "encryption"
+        "doctrine",
+        "ORM Query"
     ],
     "license": "MIT",
     "authors": [
