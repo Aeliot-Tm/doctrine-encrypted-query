@@ -176,6 +176,36 @@ jobs:
       - name: Check code style
         run: composer cs-fixer-check -- --show-progress=none
 
+  phpcs:
+    name: Check code style with PHP Code Sniffer
+    runs-on: ubuntu-22.04
+
+    steps:
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8.2
+          tools: composer
+          coverage: none
+
+      - uses: actions/checkout@v4
+
+      - name: Set versions
+        run: cp composer.3.9.lock composer.lock
+
+      - name: Cache Composer packages
+        id: composer-cache
+        uses: actions/cache@v4
+        with:
+          path: vendor
+          key: "os-${{ runner.os }}-php-${{ runner.php-version }}-composer-${{ hashFiles('**/composer.lock') }}"
+          restore-keys: "os-${{ runner.os }}-php-${{ runner.php-version }}-composer-"
+
+      - name: Install dependencies
+        uses: ramsey/composer-install@v3
+
+      - name: Check code style
+        run: composer phpcs
+
   phpstan:
     name: Static analyze with PHPStan
     runs-on: ubuntu-22.04
