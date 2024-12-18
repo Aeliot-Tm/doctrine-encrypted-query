@@ -21,6 +21,7 @@ jobs:
       - uses: shivammathur/setup-php@v2
         with:
           php-version: 8.2
+          tools: composer
           coverage: none
 
       - uses: actions/checkout@v4
@@ -39,6 +40,7 @@ jobs:
       - uses: shivammathur/setup-php@v2
         with:
           php-version: 8.2
+          tools: composer
           coverage: none
 
       - uses: actions/checkout@v4
@@ -85,6 +87,7 @@ jobs:
       - uses: shivammathur/setup-php@v2
         with:
           php-version: 8.2
+          tools: composer
           coverage: none
 
       - uses: actions/checkout@v4
@@ -131,6 +134,7 @@ jobs:
       - uses: shivammathur/setup-php@v2
         with:
           php-version: 8.2
+          tools: composer
           coverage: none
 
       - uses: actions/checkout@v4
@@ -180,6 +184,7 @@ jobs:
       - uses: shivammathur/setup-php@v2
         with:
           php-version: 8.2
+          tools: composer
           coverage: none
 
       - uses: actions/checkout@v4
@@ -218,6 +223,7 @@ jobs:
       - uses: shivammathur/setup-php@v2
         with:
           php-version: 8.2
+          tools: composer
           coverage: none
 
       - uses: actions/checkout@v4
