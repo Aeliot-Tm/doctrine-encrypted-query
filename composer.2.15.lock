@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:Aeliot-Tm/doctrine-encrypted-contracts.git",
-                "reference": "9a85619904288a2b1a2f2a4422b7abd2377f083c"
+                "reference": "2a653897ec567d5b4256bf38ef71b27b9861feaa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Aeliot-Tm/doctrine-encrypted-contracts/zipball/9a85619904288a2b1a2f2a4422b7abd2377f083c",
-                "reference": "9a85619904288a2b1a2f2a4422b7abd2377f083c",
+                "url": "https://api.github.com/repos/Aeliot-Tm/doctrine-encrypted-contracts/zipball/2a653897ec567d5b4256bf38ef71b27b9861feaa",
+                "reference": "2a653897ec567d5b4256bf38ef71b27b9861feaa",
                 "shasum": ""
             },
             "require": {
@@ -95,7 +95,7 @@
                 "source": "https://github.com/Aeliot-Tm/doctrine-encrypted-contracts/tree/main",
                 "issues": "https://github.com/Aeliot-Tm/doctrine-encrypted-contracts/issues"
             },
-            "time": "2024-12-17T14:31:41+00:00"
+            "time": "2024-12-18T06:32:03+00:00"
         },
         {
             "name": "aeliot/doctrine-encrypted-types",
@@ -103,12 +103,12 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:Aeliot-Tm/doctrine-encrypted-types.git",
-                "reference": "ae1cd484f9172adcd29dec2652afbbda5a580fee"
+                "reference": "a06334c5f4e96e3f2d58c795cecc9e8485b23789"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Aeliot-Tm/doctrine-encrypted-types/zipball/ae1cd484f9172adcd29dec2652afbbda5a580fee",
-                "reference": "ae1cd484f9172adcd29dec2652afbbda5a580fee",
+                "url": "https://api.github.com/repos/Aeliot-Tm/doctrine-encrypted-types/zipball/a06334c5f4e96e3f2d58c795cecc9e8485b23789",
+                "reference": "a06334c5f4e96e3f2d58c795cecc9e8485b23789",
                 "shasum": ""
             },
             "require": {
@@ -215,7 +215,7 @@
                 "source": "https://github.com/Aeliot-Tm/doctrine-encrypted-types/tree/main",
                 "issues": "https://github.com/Aeliot-Tm/doctrine-encrypted-types/issues"
             },
-            "time": "2024-12-17T14:41:44+00:00"
+            "time": "2024-12-18T06:42:04+00:00"
         },
         {
             "name": "doctrine/cache",
@@ -2406,16 +2406,16 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "2.0.3",
+            "version": "2.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "46b4d3529b12178112d9008337beda0cc2a1a6b4"
+                "reference": "50d276fc3bf1430ec315f2f109bbde2769821524"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/46b4d3529b12178112d9008337beda0cc2a1a6b4",
-                "reference": "46b4d3529b12178112d9008337beda0cc2a1a6b4",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/50d276fc3bf1430ec315f2f109bbde2769821524",
+                "reference": "50d276fc3bf1430ec315f2f109bbde2769821524",
                 "shasum": ""
             },
             "require": {
@@ -2460,25 +2460,25 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-11-28T22:19:37+00:00"
+            "time": "2024-12-17T17:14:01+00:00"
         },
         {
             "name": "phpstan/phpstan-phpunit",
-            "version": "2.0.1",
+            "version": "2.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan-phpunit.git",
-                "reference": "4b6ad7fab8683ff4efd7887ba26ef8ee171c7475"
+                "reference": "2cedfb72dfd0e9c5d636f837b945c9f20c943bdb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan-phpunit/zipball/4b6ad7fab8683ff4efd7887ba26ef8ee171c7475",
-                "reference": "4b6ad7fab8683ff4efd7887ba26ef8ee171c7475",
+                "url": "https://api.github.com/repos/phpstan/phpstan-phpunit/zipball/2cedfb72dfd0e9c5d636f837b945c9f20c943bdb",
+                "reference": "2cedfb72dfd0e9c5d636f837b945c9f20c943bdb",
                 "shasum": ""
             },
             "require": {
                 "php": "^7.4 || ^8.0",
-                "phpstan/phpstan": "^2.0"
+                "phpstan/phpstan": "^2.0.4"
             },
             "conflict": {
                 "phpunit/phpunit": "<7.0"
@@ -2509,9 +2509,9 @@
             "description": "PHPUnit extensions and rules for PHPStan",
             "support": {
                 "issues": "https://github.com/phpstan/phpstan-phpunit/issues",
-                "source": "https://github.com/phpstan/phpstan-phpunit/tree/2.0.1"
+                "source": "https://github.com/phpstan/phpstan-phpunit/tree/2.0.2"
             },
-            "time": "2024-11-12T12:48:00+00:00"
+            "time": "2024-12-17T17:22:26+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",
