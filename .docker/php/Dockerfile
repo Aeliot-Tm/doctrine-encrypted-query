@@ -33,7 +33,8 @@ RUN set -xe; \
 
 WORKDIR /app
 
-COPY composer.* ./
+COPY composer.json ./composer.json
+COPY composer.2.15.lock ./composer.lock
 
 ARG COMPOSER_GITHUB_TOKEN=""
 RUN set -xe; \
