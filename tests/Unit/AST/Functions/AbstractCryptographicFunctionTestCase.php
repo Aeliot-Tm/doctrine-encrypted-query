@@ -14,7 +14,10 @@ declare(strict_types=1);
 namespace Aeliot\DoctrineEncrypted\Query\Tests\Unit\AST\Functions;
 
 use Aeliot\DoctrineEncrypted\Contracts\CryptographicSQLFunctionNameProviderInterface as FuncProviderInterface;
-use Aeliot\DoctrineEncrypted\Contracts\CryptographicSQLFunctionWrapper;
+use Aeliot\DoctrineEncrypted\Query\AST\Functions\AbstractSingleArgumentFunction;
+use Doctrine\ORM\Query\AST\SimpleArithmeticExpression;
+use Doctrine\ORM\Query\Lexer;
+use Doctrine\ORM\Query\Parser;
 use PHPUnit\Framework\TestCase;
 
 abstract class AbstractCryptographicFunctionTestCase extends TestCase
@@ -42,6 +45,31 @@ abstract class AbstractCryptographicFunctionTestCase extends TestCase
             }
         };
 
-        CryptographicSQLFunctionWrapper::setFunctionNameProvider($functionNameProvider);
+        AbstractSingleArgumentFunction::setFunctionNameProvider($functionNameProvider);
+    }
+
+    protected function mockParser(SimpleArithmeticExpression $simpleArithmeticExpression): Parser
+    {
+        $parser = $this->createMock(Parser::class);
+        $parser->method('SimpleArithmeticExpression')->willReturn($simpleArithmeticExpression);
+
+        $invokedCount = $this->exactly(3);
+        $parser->expects($invokedCount)
+            ->method('match')
+            ->willReturnCallback(function ($token) use ($invokedCount) {
+                switch ($invokedCount->numberOfInvocations()) {
+                    case 1:
+                        self::assertSame(Lexer::T_IDENTIFIER, $token);
+                        break;
+                    case 2:
+                        self::assertSame(Lexer::T_OPEN_PARENTHESIS, $token);
+                        break;
+                    case 3:
+                        self::assertSame(Lexer::T_CLOSE_PARENTHESIS, $token);
+                        break;
+                }
+            });
+
+        return $parser;
     }
 }

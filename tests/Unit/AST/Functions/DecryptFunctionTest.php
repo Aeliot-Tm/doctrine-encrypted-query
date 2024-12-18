@@ -15,8 +15,6 @@ namespace Aeliot\DoctrineEncrypted\Query\Tests\Unit\AST\Functions;
 
 use Aeliot\DoctrineEncrypted\Query\AST\Functions\DecryptFunction;
 use Doctrine\ORM\Query\AST\SimpleArithmeticExpression;
-use Doctrine\ORM\Query\Lexer;
-use Doctrine\ORM\Query\Parser;
 use Doctrine\ORM\Query\SqlWalker;
 
 final class DecryptFunctionTest extends AbstractCryptographicFunctionTestCase
@@ -26,17 +24,7 @@ final class DecryptFunctionTest extends AbstractCryptographicFunctionTestCase
         $function = new DecryptFunction(self::FUNC_DECRYPT);
 
         $simpleArithmeticExpression = $this->createMock(SimpleArithmeticExpression::class);
-
-        $parser = $this->createMock(Parser::class);
-        $parser->method('SimpleArithmeticExpression')->willReturn($simpleArithmeticExpression);
-
-        $parser->expects($this->exactly(3))
-            ->method('match')
-            ->withConsecutive(
-                [Lexer::T_IDENTIFIER],
-                [Lexer::T_OPEN_PARENTHESIS],
-                [Lexer::T_CLOSE_PARENTHESIS],
-            );
+        $parser = $this->mockParser($simpleArithmeticExpression);
 
         $function->parse($parser);
 
