@@ -9,6 +9,12 @@
         "encryption"
     ],
     "license": "MIT",
+    "authors": [
+        {
+            "name": "Anatoliy Melnikov",
+            "email": "5785276@gmail.com"
+        }
+    ],
     "autoload": {
         "psr-4": {
             "Aeliot\\DoctrineEncrypted\\Query\\": "src/"
@@ -56,8 +62,11 @@
             "@cs-fixer-check",
             "@phpcs",
             "@phpstan",
-            "@test-unit"
+            "@require-check",
+            "@test-unit",
+            "@unused"
         ],
+        "cs-baseline": "@cs-fixer-baseline",
         "cs-check": "@cs-fixer-check",
         "cs-fix": "@cs-fixer-fix",
         "cs-fixer-baseline": "XDEBUG_MODE=off tools/pcsf-baseline.phar -b scripts/php-cs-fixer/baseline.json -c scripts/php-cs-fixer/config.php -f scripts/php-cs-fixer/finder.php",
@@ -77,7 +86,7 @@
         ],
         "phpstan-clear": "vendor/bin/phpstan clear-result-cache",
         "require-check": "tools/composer-require-checker check --config-file=scripts/composer-require-checker/config.json composer.json --output=text",
-        "test-unit": "vendor/bin/phpunit -c scripts/phpunit/config.xml --testsuite unit -v",
+        "test-unit": "vendor/bin/phpunit -c scripts/phpunit/config.xml --testsuite unit",
         "unused": "XDEBUG_MODE=off tools/composer-unused.phar unused -c ./scripts/composer-unused/config.php"
     }
 }
