@@ -3,6 +3,7 @@
 
 /.docker        export-ignore
 /.github        export-ignore
+/.phive         export-ignore
 /scripts        export-ignore
 /tests          export-ignore
 /tools          export-ignore
@@ -13,4 +14,5 @@
 /.gitignore             export-ignore
 /compose.yaml           export-ignore
 /compose.override.yaml  export-ignore
+/composer.1.15.lock     export-ignore
 /composer.lock          export-ignore
