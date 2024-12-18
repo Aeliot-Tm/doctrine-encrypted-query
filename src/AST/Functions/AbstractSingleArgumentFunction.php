@@ -45,7 +45,10 @@ abstract class AbstractSingleArgumentFunction extends FunctionNode
 
     abstract public static function getSupportedFunctionName(): string;
 
-    public function __construct(string $name)
+    /**
+     * @param string $name
+     */
+    public function __construct($name)
     {
         if (static::getSupportedFunctionName() !== $name) {
             throw new ConfigurationException(sprintf('Invalid function configuration "%s"', $name));
