@@ -190,7 +190,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Set versions
-        run: cp composer.3.9.lock composer.lock
+        run: cp composer.2.15.lock composer.lock
 
       - name: Cache Composer packages
         id: composer-cache
