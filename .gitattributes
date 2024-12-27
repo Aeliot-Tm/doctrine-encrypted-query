@@ -14,5 +14,5 @@
 /.gitignore             export-ignore
 /compose.yaml           export-ignore
 /compose.override.yaml  export-ignore
-/composer.1.15.lock     export-ignore
+/composer.2.15.lock     export-ignore
 /composer.lock          export-ignore

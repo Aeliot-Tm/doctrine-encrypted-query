@@ -36,13 +36,11 @@ WORKDIR /app
 COPY composer.json ./composer.json
 COPY composer.2.15.lock ./composer.lock
 
-ARG COMPOSER_GITHUB_TOKEN=""
-RUN set -xe; \
-    composer config --global github-oauth.github.com $COMPOSER_GITHUB_TOKEN && \
-    composer install --no-autoloader --no-dev --no-interaction --no-progress --no-scripts --prefer-dist && \
-    composer clear-cache && \
-    rm -rf ./vendor/*/*/tests
+#RUN set -xe; \
+#    composer install --no-autoloader --no-dev --no-interaction --no-progress --no-scripts --prefer-dist && \
+#    composer clear-cache && \
+#    rm -rf ./vendor/*/*/tests
 
 COPY . ./
 
-RUN composer dump-autoload --optimize
+#RUN composer dump-autoload --optimize
