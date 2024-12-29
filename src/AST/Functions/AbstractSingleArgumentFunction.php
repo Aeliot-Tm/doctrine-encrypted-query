@@ -45,12 +45,14 @@ abstract class AbstractSingleArgumentFunction extends FunctionNode
 
     abstract public static function getSupportedFunctionName(): string;
 
+    abstract protected static function getDefaultFunctionName(): string;
+
     /**
      * @param string $name
      */
     public function __construct($name)
     {
-        if (static::getSupportedFunctionName() !== $name) {
+        if (!$this->isSupportedFunctionName($name)) {
             throw new ConfigurationException(sprintf('Invalid function configuration "%s"', $name));
         }
 
@@ -76,12 +78,33 @@ abstract class AbstractSingleArgumentFunction extends FunctionNode
         $parser->match(Lexer::T_CLOSE_PARENTHESIS);
     }
 
+    protected function isSupportedFunctionName(string $name): bool
+    {
+        if (static::getSupportedFunctionName() === $name) {
+            return true;
+        }
+        if (static::getDefaultFunctionName() === $name) {
+            return true;
+        }
+
+        return false;
+    }
+
     protected static function getFunctionNameProvider(): CryptographicSQLFunctionNameProviderInterface
+    {
+        if (!self::hasFunctionNameProvider()) {
+            throw new CryptographicSQLFunctionNameProviderNotConfiguredException();
+        }
+
+        return self::$functionNameProvider;
+    }
+
+    protected static function hasFunctionNameProvider(): bool
     {
         if (!self::$functionNameProvider instanceof CryptographicSQLFunctionNameProviderInterface) {
             throw new CryptographicSQLFunctionNameProviderNotConfiguredException();
         }
 
-        return self::$functionNameProvider;
+        return isset(self::$functionNameProvider);
     }
 }

@@ -13,10 +13,19 @@ declare(strict_types=1);
 
 namespace Aeliot\DoctrineEncrypted\Query\AST\Functions;
 
+use Aeliot\DoctrineEncrypted\Query\Enum\FunctionEnum;
+
 final class EncryptFunction extends AbstractSingleArgumentFunction
 {
     public static function getSupportedFunctionName(): string
     {
-        return self::getFunctionNameProvider()->getEncryptFunctionName();
+        return self::hasFunctionNameProvider()
+            ? self::getFunctionNameProvider()->getEncryptFunctionName()
+            : self::getDefaultFunctionName();
+    }
+
+    protected static function getDefaultFunctionName(): string
+    {
+        return FunctionEnum::ENCRYPT;
     }
 }
