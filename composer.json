@@ -3,11 +3,19 @@
     "type": "library",
     "description": "Implementation of cryptographic SQL functions processing for ORM Query of Doctrine",
     "keywords": [
-        "cryptographic",
+        "cryptography",
         "encryption",
-        "database",
+        "decryption",
+        "doctrine-encrypted",
         "doctrine",
-        "ORM Query"
+        "doctrine-extension",
+        "doctrine-orm",
+        "doctrine-query",
+        "doctrine-ast",
+        "php",
+        "database",
+        "sql-routine",
+        "sql-function" 
     ],
     "license": "MIT",
     "authors": [
@@ -79,5 +87,8 @@
         "require-check": "tools/composer-require-checker check --config-file=scripts/composer-require-checker/config.json composer.json --output=text",
         "test-unit": "vendor/bin/phpunit -c scripts/phpunit/config.xml --testsuite unit",
         "unused": "XDEBUG_MODE=off tools/composer-unused.phar unused -c ./scripts/composer-unused/config.php"
+    },
+    "suggest": {
+        "aeliot/doctrine-encrypted-bundle": "Ensure application of this functionality in your project"
     }
 }
